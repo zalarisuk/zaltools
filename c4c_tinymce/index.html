@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='tinymce.min.js'></script>
+	<script>
+	tinymce.init({
+		selector: '#mytextarea',
+		plugins: ["code", "charmap", "link", "image"],
+		toolbar: ["undo redo | styleselect | bold italic | link image | alignleft aligncenter alignright | charmap code"],
+		a_plugin_option: true,
+		height: 600,
+		a_configuration_option: 400
+	});
+	</script>
+	<title>C4C Template Editor</title>
+</head>
+
+<body>
+<form method="post">
+	<textarea id="mytextarea">
+		1. Select Tools > Source Code.<br>
+		2. Then paste in the HTML and select OK.<br>
+		3. View the output in the editor and select it all.<br>
+		4. Copy it to the clipboard.<br>
+		5. Paste it into the C4C template.
+	</textarea>
+</form>
+<p>
+	This is using Tiny MCE v4.5.7 as per C4C on 22 June 2018.
+</p>
+<p>
+	You can use the following JavaScript code on the C4C template page to check the version number: 
+	<code style="color: green; background-color: #BBBBBB;">alert(tinyMCE.majorVersion + '.' + tinyMCE.minorVersion);</code>
+</p>
+</body>
+</html>

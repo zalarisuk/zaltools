@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-GB">
+<head>
+	<title>Zalaris Email Generator</title>
+	<!-- Include the new WysiWyg HTML edditor -->
+	<script src="../ckeditor/ckeditor.js"></script>
+	<!-- Add the template files -->
+	<!-- General template chunks -->
+
+	<!-- Internal -->
+	<script src="template_int_gen.js"></script>
+	<script src="template_int_new.js"></script>
+	<script src="template_int_leaver.js"></script>
+	<script src="template_int_timesub.js"></script>
+	<script src="template_int_hqupdate.js"></script>
+	
+	<!-- External: Generic -->
+	<!-- Removed -->
+</head>
+
+<body onLoad="Preview();" style="font-family:arial;">
+<h1><a href="/"><img src="../logo.png" style="float:left; height: 40px;"></a>&nbsp;E-mail Generator</h1>
+
+<hr>
+
+<h2>Instructions</h2>
+<p>This page will let you choose a template for a Zalaris mailing e-mail.</p>
+<ol>
+	<li>Select the type of template you wish to use (internal or external).</li>
+	<li>Select the template you want to use.</li>
+	<ul>
+		<li>Templates are just that.  All content can be freely changed.  It simply pre-populates the fields with example content.</li>
+	</ul>
+	<li>Enter the details for the mailing into the fields below in the <i>Settings</i> section.</li>
+	<ul>
+		<li>The output sections (<i>Rendered</i> and <i>Raw HTML</i>) will update automatically.</li>
+	</ul>
+	<li>Once the settings have been set to your requirements copy the appropriate output to the clipboard.</li>
+	<ul>
+		<li>If your e-mail client supports rich content (e.g. Outlook), select the output in the <i>Rendered</i> output section.  Next switch to your e-mail client and paste the clipboard content into a new mail.</li>
+		<li>If your e-mail client supports HTML content (e.g. BlastWizard), select the output in the <i>Raw HTML</i> output section.</li>
+		<ul>
+			<li>If your e-mail client supports direct entry of HTML content, switch to your e-mail client and paste the clipboard content into a new mail.</li>
+			<li>If your e-mail client supports loading HTML content by file, open Windows Notepad and paste the clipboard content into a new file.  Save this file.  Next switch to your e-mail client and load the file you just saved.</li>
+		</ul>
+	</ul>
+	<li>Test & review your e-mail (e.g. send to yourself and check in your e-mail client on your PC, on your mobile and in web mail.</li>
+	<li>Send the e-mail to your mailing list.</li>
+</ol>
+
+<hr>
+
+<h2>Settings</h2>
+
+<!-- Template type selection no longer used as only being used for internal templating -->
+<!-- Hiding the form for now, but leaving it selected as used by the output build code -->
+<!-- Also has the advantage of being able to redisplay by modifying the table style and reistating the paraagraph tags -->
+<!--<p>-->
+	<table border="0" style="display: none;">
+		<tr>
+			<td><b>Select Template Type:</b></td>
+			<td>
+				<form>
+					<input type="radio" id="RADIO_INT" name="TEMPLATE_TYPE" value="INT" onChange="PopluateTemplatesList()" checked>Internal E-mails<br>
+					<input type="radio" id="RADIO_EXT" name="TEMPLATE_TYPE" value="EXT" onChange="PopluateTemplatesList()">External E-mails
+				</form>
+			</td>
+		</tr>
+	</table>
+<!--</p>-->
+
+<p>
+<b>Load Template:</b> <select id="listTemplates" onchange="listTemplatesChange()"></select>
+</p>
+<p>
+<table border="0">
+	<tr>
+		<td><b>Title:</b></td>
+		<td><input ID="INPUT-TITLE" type="text" size="60" value="" onKeyUp="Preview()"></input></td>
+	</tr>
+	<tr>
+		<td><b>Sub Title:</b></td>
+		<td><input ID="INPUT-SUBTITLE" type="text" size="60" value="" onKeyUp="Preview()"></input></td>
+	</tr>
+	<tr>
+		<td><b>Date:</b></td>
+		<td><input ID="INPUT-DATE" type="text" size="10" value="dd/mm/yyyy" onKeyUp="Preview()"></input></td>
+	</tr>
+</table>
+<b>Body text:</b><br />
+<textarea ID="INPUT-BODY" cols="80" rows="10" class="ckeditor">
+
+</textarea><br />
+<b>Footer:</b>&nbsp;
+<select ID="INPUT-FOOTER" onchange="Preview()">
+	<option value="https://sylumer.github.io/zaltools/Banners/balloon%20canvas.png" selected="selected">Balloon</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/bridge.png">Bridge</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/businesscontinuity.png">Business Continuity</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/clouds.png">Clouds</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/consulting.png">Consulting</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/crane.png">Crane</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/eastereggs.png">Easter Eggs</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/efile.png">eFile</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/explaining.png">Explaining</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/finance.png">Finance</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/footballteam.png">Football Team</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/greek%20village.png">Greek Village at Sunset</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/hosting.png">Hosting</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/hroutsourcing.png">HR Outsourcing</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/lotto2.png">Lotto</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/norseman.png">Norseman Triathlon</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/on%20the%20phone.png">On the Phone</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/payroll.png">Payroll</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/people.png">People</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/peoplehub.png">PeopleHub</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/plane.png">Plane</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/sand%20circles.png">Sand Circles</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/smooth%20pebbles.png">Smooth Pebbles</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/snowboarding.png">Snowboarding</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/snowflake.png">Snowflake</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/snowman.png">Snowman</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/spices.png">Spices</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/stacking stones.png">Stacking Stones</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/successfactors.png">SuccessFactors</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/transformation.png">Transformation</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/yingyang.png">YingYang</option>
+	<option value="https://sylumer.github.io/zaltools/Banners/zally.png">Zally</option>
+</select><br/>
+
+</p>
+	
+<hr>
+
+<style>
+	td.filledcell {background-color: #2C3538;}
+</style>
+
+<h2>Output: Rendered</h2>
+	<br/ >
+	
+	<div id="OUTPUT-PREVIEW">
+	<table width="550" align="center" border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="font-family: georgia,Helvetica,sans-serif; font-size: 14pt; color: #ffffff;">
+		<tr>
+			<td colspan="4" ><img src="https://sylumer.github.io/zaltools/Banners/zalarisbanner.png" width="550" height="73" /></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="filledcell">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="4" ><img src="https://sylumer.github.io/zaltools/Banners/zalarisbanner-tagline.png" width="550" height="40" /></td>
+		</tr>
+		<tr>
+			<td width="18" class="filledcell">&nbsp;</td>
+			<td height="30" width="414" class="filledcell">
+				<div id="INPUT-TITLE-PREVIEW">This is where the title will go</div>
+			</td>
+			<td width="150" align="right" class="filledcell">
+				<div id="INPUT-DATE-PREVIEW">The date goes here</div>
+			</td>
+			<td width="18" class="filledcell">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18" class="filledcell">&nbsp;</td>
+			<td height="30" width="414" style="font-size: 10pt;" class="filledcell">
+			<div id="INPUT-SUBTITLE-PREVIEW">This is where the sub title will go</div>
+			</td>
+			<td width="100" align="right" class="filledcell">
+				&nbsp;
+			</td>
+			<td width="18" class="filledcell">&nbsp;</td>
+		</tr>
+	</table>
+	<table width="550" align="center" border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable">
+		<tr>
+			<td colspan="3" height="10" style="border-right: 1px solid #cccccc; border-left: 1px solid #cccccc;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18" style="border-left: 1px solid #cccccc;">&nbsp;</td>
+			<td width="514">
+				<div id="INPUT-BODY-PREVIEW" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 10pt; color: #000000; text-align: left"></div>			
+			</td>
+			<td width="18" style="border-right: 1px solid #cccccc;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10" style="border-right: 1px solid #cccccc; border-left: 1px solid #cccccc;">&nbsp;</td>
+		</tr>
+	</table>
+	
+	<table width="550" align="center" border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable">
+		<tr>
+			<td>
+				<img id="INPUT-FOOTER-PREVIEW" src="https://sylumer.github.io/zaltools/Banners/balloon canvas.png" width="550"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" style="font-size: 8px" id="COPYRIGHT"></td>
+		</tr>
+	</table>
+<script>
+	document.getElementById("COPYRIGHT").innerHTML = "&copy; Zalaris " + new Date().getFullYear() + ".";
+</script>
+<br/>
+</div>
+<hr />
+<h2>Output: Raw HTML</h2>
+<textarea ID="OUTPUT-HTML" cols="120" rows="30">This area will be populated with HTML once you start amending the initial template above.</textarea>
+
+<hr>
+
+<script type='text/javascript'>
+	CKEDITOR.on('instanceCreated', 
+		function (e)
+		{
+			document.getElementById( e.editor.name + '-PREVIEW').innerHTML = e.editor.getData();
+			e.editor.on('change', 
+				function (ev) 
+				{
+					document.getElementById( ev.editor.name + '-PREVIEW').innerHTML = ev.editor.getData();
+					//document.getElementById( ev.editor.name + '_output').innerHTML = ev.editor.getData();
+					Preview();
+				}
+			);
+		}
+	);
+
+	function WriteOutput()
+	{
+		document.getElementById('OUTPUT-HTML').value = document.getElementById('OUTPUT-PREVIEW').innerHTML;
+	}
+		
+	function Preview()
+	{
+		//Set the fields up
+		document.getElementById('INPUT-TITLE-PREVIEW').innerHTML = document.getElementById('INPUT-TITLE').value;
+		document.getElementById('INPUT-SUBTITLE-PREVIEW').innerHTML = document.getElementById('INPUT-SUBTITLE').value;
+		document.getElementById('INPUT-DATE-PREVIEW').innerHTML = document.getElementById('INPUT-DATE').value;
+		document.getElementById('INPUT-BODY-PREVIEW').innerHTML = CKEDITOR.instances['INPUT-BODY'].getData();
+		document.getElementById('INPUT-FOOTER-PREVIEW').src = document.getElementById('INPUT-FOOTER').value;
+		
+		//Update the raw HTML output text area
+		WriteOutput();
+	}
+</script>
+
+
+<script>
+	//Populate the drop down list of available templates
+	
+	//First build some arrays
+	//	Text contains what is displayed to the end user
+	var listTemplatesText = new Array();
+	//	Value contains a value that we can use in some logic later on
+	var listTemplatesValue = new Array();
+	
+	//This function clears the arrays
+	function ClearTemplateArrays()
+	{
+		listTemplatesText.length = 0;
+		listTemplatesValue.length = 0;
+	}
+	
+	//This function logically adds to the arrays in matched pairs of data
+	function AddTemplate(p_strText, p_strValue)
+	{
+		listTemplatesText.push(p_strText);
+		listTemplatesValue.push(p_strValue);
+	}
+	
+	
+	function PopluateTemplatesListExternal()
+	{
+		//Use the AddTemplate function to populate the arrays.
+		// The first entry in the arrays is the default.
+		ClearTemplateArrays();
+		//AddTemplate('Generic', 'GEN');
+		
+		//Clear the drop down list
+		document.getElementById( 'listTemplates' ).innerHTML = "";
+		
+		//Add an option to the listTemplates for each array pair
+		objSelect = document.getElementById( 'listTemplates' );
+		for( objEntry in listTemplatesText )
+		{
+			var op = new Option();
+			op.text = listTemplatesText[objEntry];
+			op.value = listTemplatesValue[objEntry];
+			objSelect.add( op );		
+		};
+		//The listTemplates drop down list should now be populated
+	}
+	
+	
+	function PopluateTemplatesListInternal()
+	{
+		//Use the AddTemplate function to populate the arrays.
+		// The first entry in the arrays is the default.
+		ClearTemplateArrays();
+		AddTemplate('Generic Message', 'INT_GEN');
+		AddTemplate('New Starter Introduction', 'INT_NEW');
+		AddTemplate('Leaver Farewell', 'INT_LEAVER');
+		AddTemplate('Timesheet & Expenses Reminder', 'INT_TIMESUB');
+		AddTemplate('Zalaris HQ Update', 'INT_HQUPDATE');
+				
+		//Clear the drop down list
+		document.getElementById( 'listTemplates' ).innerHTML = "";
+		
+		//Add an option to the listTemplates for each array pair
+		objSelect = document.getElementById( 'listTemplates' );
+		for( objEntry in listTemplatesText )
+		{
+			var op = new Option();
+			op.text = listTemplatesText[objEntry];
+			op.value = listTemplatesValue[objEntry];
+			objSelect.add( op );		
+		};
+		//The listTemplates drop down list should now be populated
+	}
+	
+	
+	function PopluateTemplatesList()
+	{
+		//Choose the type of templates to make available
+		if (document.getElementById('RADIO_INT').checked)
+		{
+			PopluateTemplatesListInternal();
+		}
+		else
+		{
+			PopluateTemplatesListExternal();
+		}
+		
+		//Now repopulate the input areas, preview and HTML output
+		listTemplatesChange()
+	}
+	
+	//First time in, so populate the templates list
+	PopluateTemplatesList();
+
+	
+	//Helper function for concatenating multiple strings into a field for display in a text area.
+	function appendToTemplateField(p_strInput1, p_strInput2)
+	{
+		return p_strInput1 + p_strInput2 + '\n';
+	}
+	
+	
+	//When the listTemplates selection is changed, this function is called
+	function listTemplatesChange()
+	{
+		//Retrieve the hidden value associated with the selected template
+		strTemplateChoice = document.getElementById("listTemplates").value;
+		
+		//Run the set-up for the appropriate template to populate the right strings
+		//Internal
+		if (strTemplateChoice=="INT_GEN") InitContent_INT_GEN();
+		if (strTemplateChoice=="INT_VPN") InitContent_INT_VPN();
+		if (strTemplateChoice=="INT_NEW") InitContent_INT_NEW();
+		if (strTemplateChoice=="INT_SAND") InitContent_INT_SAND();
+		if (strTemplateChoice=="INT_XMAS") InitContent_INT_XMAS();
+		if (strTemplateChoice=="INT_SPAM") InitContent_INT_SPAM();
+		if (strTemplateChoice=="INT_TIMESUB") InitContent_INT_TIMESUB();
+		if (strTemplateChoice=="INT_LEAVER") InitContent_INT_LEAVER();
+		if (strTemplateChoice=="INT_HQUPDATE") InitContent_INT_HQUPDATE();
+		//External
+		if (strTemplateChoice=="VSN_SB") InitContent_VSN_SB();
+		if (strTemplateChoice=="SFSF") InitContent_SFSF();
+		if (strTemplateChoice=="SFSF_SB") InitContent_SFSF_SB();
+		if (strTemplateChoice=="SFSF_KD") InitContent_SFSF_KD();
+		if (strTemplateChoice=="GEN") InitContent_GEN();
+		if (strTemplateChoice=="GEN_SB") InitContent_GEN_SB();
+		if (strTemplateChoice=="GEN_KD") InitContent_GEN_KD();
+		if (strTemplateChoice=="CONF_KD") InitContent_CONF_KD();
+		
+		//Update the input fields
+		document.getElementById("INPUT-TITLE").value = window.strInputTitle;
+		document.getElementById("INPUT-SUBTITLE").value = window.strInputSubTitle;
+		
+		//First pass through it will use the first line.
+		//Subsequent passes the second will be used
+		document.getElementById("INPUT-BODY").value = window.strInputBody;
+		CKEDITOR.instances['INPUT-BODY'].setData(window.strInputBody);
+
+		//Now force an update of the preview and output
+		Preview();
+	}	
+
+
+
+	//Build a placeholder token - for use in the templates
+	function placeholder(p_strTokenText)
+	{
+		return `{<span style="background:yellow;color:red;">${p_strTokenText}</span>}`;
+	}
+</script>
+
+
+<script>
+	//Do some initialisation...
+	
+	//Default the date to today's date
+	const dtToday = new Date();
+	let strYear = dtToday.getFullYear();
+	let strMonth = dtToday.getMonth() + 1; // Months start at 0!
+	let strDay = dtToday.getDate();
+	if (strDay < 10) strDay = '0' + strDay;
+	if (strMonth < 10) strMonth = '0' + strMonth;
+	let strToday = strDay + '/' + strMonth + '/' + strYear;
+	document.getElementById("INPUT-DATE").value = strToday;
+	
+	//We'll also call the selection function now just to run it with the default selection
+	listTemplatesChange();
+
+	//
+	Preview();
+</script>
+
+
+<table border="1">
+	<tr>
+		<td><b>Version</b></td>
+		<td>5.0</td>
+	</tr>
+	<tr>
+		<td><b>Author</b></td>
+		<td>Stephen Millard, Zalaris</td>
+	</tr>
+</table>
+<hr>
+
+</body>
+</html>

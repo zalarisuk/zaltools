@@ -8,7 +8,7 @@ function InitContent_INT_NEW()
 	window.strInputBody = "";
 
 	// Standard lead in
-	window.strInputBody = appendToTemplateField(window.strInputBody, `<p>We would like to take this opportunity to introduce ${placeholder("NEW STARTER NAME")} to Zalaris. Tony joins #teamZalaris as a ${placeholder("NEW STARTER ROLE")} in the ${placeholder("NEW STARTER'S TEAM")} Team reporting to ${placeholder("LINE MANAGER FIRST NAME")}.
+	window.strInputBody = appendToTemplateField(window.strInputBody, `<p>We would like to take this opportunity to introduce ${placeholder("NEW STARTER NAME")} to Zalaris. ${placeholder("NEW STARTER FIRST NAME")} joins #teamZalaris as a ${placeholder("NEW STARTER ROLE")} in the ${placeholder("NEW STARTER'S TEAM")} Team reporting to ${placeholder("LINE MANAGER FIRST NAME")}.
 	Please join us in welcoming ${placeholder("CHOOSE: him/her/them")} and we hope that you each take time to engage with and welcome ${placeholder("NEW STARTER FIRST NAME")} into our organisation over the coming months.
 	</p>`);
 
